@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <meta charset="utf-8">
+    
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Найди предмет!</title>
+<meta name="description" content="Моя версия классической концентрации игры памяти. Раскройте все блоки, успешно соответствуя парам изображения. Щелкните кнопкой Timer ниже, чтобы начать новую игру всякий раз, когда Вы хотите" />
+<meta name="keywords" content="JavaScript Games: Концентрация" />
+<meta name="robots" content="all" />
+<meta name="revisit-after" content="7 days" />
+
+<SCRIPT LANGUAGE="JavaScript"> 
+ 
+ 
+ 
+ 
+<!-- Begin
+var pics = new Array();
+for (i = 0; i <= 18; i++) {
+pics[i] = new Image();
+pics[i].src = 'image' + i + '.gif';
+}
+var map=new Array(1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15, 16, 16, 17, 17, 18, 18);
+var user = new Array();
+var temparray = new Array();
+var clickarray = new Array(0, 0);
+var ticker, sec, min, ctr, id, oktoclick, finished;
+function init() {
+clearTimeout(id);
+for (i = 0; i <= 35 ;i++) {
+user[i] = 0;
+}
+ticker = 0;
+min = 0;
+sec = 0;
+ctr = 0;
+oktoclick = true;
+finished = 0;
+document.f.b.value = "";
+scramble();
+runclk();
+for (i = 0; i <= 35; i++) {
+document.f[('img'+i)].src = "image0.gif";
+   }
+}
+function runclk() {
+min = Math.floor(ticker/60);
+sec = (ticker-(min*60))+'';
+if(sec.length == 1) {sec = "0"+sec};
+ticker++;
+document.f.b.value = min+":"+sec;
+id = setTimeout('runclk()', 1000);
+}
+function scramble() {
+for (z = 0; z < 5; z++) {
+for (x = 0; x <= 35; x++) {
+temparray[0] = Math.floor(Math.random()*36);
+temparray[1] = map[temparray[0]];
+temparray[2] = map[x];
+map[x] = temparray[1];
+map[temparray[0]] = temparray[2];
+      }
+   }
+}
+function showimage(but) {
+if (oktoclick) {
+oktoclick = false; 
+document.f[('img'+but)].src = 'image'+map[but]+'.gif';
+if (ctr == 0) {
+ctr++;
+clickarray[0] = but;
+oktoclick = true;
+} else {
+clickarray[1] = but;
+ctr = 0;
+setTimeout('returntoold()', 600);
+      }
+   }
+}
+function returntoold() {
+if ((clickarray[0] == clickarray[1]) && (!user[clickarray[0]])) {
+document.f[('img'+clickarray[0])].src = "image0.gif";
+oktoclick = true;
+} else {
+if (map[clickarray[0]] != map[clickarray[1]]) {
+if (user[clickarray[0]] == 0) {
+document.f[('img'+clickarray[0])].src = "image0.gif";
+}
+if (user[clickarray[1]] == 0) {
+document.f[('img'+clickarray[1])].src = "image0.gif";
+   }
+}
+if (map[clickarray[0]] == map[clickarray[1]]) {
+if (user[clickarray[0]] == 0&&user[clickarray[1]] == 0) { finished++; }
+user[clickarray[0]] = 1;
+user[clickarray[1]] = 1;
+}
+if (finished >= 18) {
+alert('You did it in '+document.f.b.value+' !');
+init();
+} else {
+oktoclick = true;
+      }
+   }
+}
+//  End -->
+</script>
+
+ 
+<BODY BGCOLOR=#ffffff vlink=#0000ff OnLoad="init()">
+<basefont size=3>
+
+<!-- Demonstration -->
+<center>
+<h2>Найди предмет </h2>
+<form name="f"> 
+<table cellpadding="0" cellspacing="0" border="0">
+<script language="javascript">
+<!-- Begin
+for (r = 0; r <= 5; r++) {
+document.write('<tr>');
+for (c = 0; c <= 5; c++) {
+document.write('<td align="center">');
+document.write('<a href="javascript:showimage('+((6*r)+c)+')" onClick="document.f.b.focus()">');
+document.write('<img src="image0.gif" name="img'+((6*r)+c)+'" border="0">');
+document.write('</a></td>');
+}
+document.write('</tr>');
+}
+// End -->
+</script>
+</table>
+<br><br>
+<input type="button" value="         " name="b" onClick="init()">
+</form>
+</center>
+
+
+ 
+
+</CENTER>
+ 
+ 
+
+ 
+ 
+  <title>Найди предмет</title>
+    
+  <link href="style/main.css" rel="stylesheet" type="text/css">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="meta/apple-touch-icon.png">
+  <link rel="apple-touch-startup-image" href="meta/apple-touch-startup-image-640x1096.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)"> <!-- iPhone 5+ -->
+  <link rel="apple-touch-startup-image" href="meta/apple-touch-startup-image-640x920.png"  media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)"> <!-- iPhone, retina -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
+  <!-- Подключение CSS файла -->
+<link rel="stylesheet" href="/style/modal.css">
+
+<!-- Подключения JavaScript файла -->
+<script src="modal.js"></script>
+
+<script type="text/javascript" src="//vk.com/js/api/xd_connection.js?2" charset="utf-8"></script>
+<script type="text/javascript" src="//ad.mail.ru/static/admanhtml/rbadman-html5.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="//vk.com/js/api/adman_init.js" charset="utf-8"></script>
+</head>
+<body>
+
+
+  <div class="container">
+    <div class="heading">
+      <div class="scores-container">
+     
+      </div>
+    </div>
+
+    </div>
+ <div class="muzter-genres">
+<a href="/finds/144.html" onclick="myFunction1()" class="muzter-genre"><div style="background-image: linear-gradient( 135deg, #79F1A4 10%, #0E5CAD 100%);"><div><div class="genre-icon genre-tiktok-music"></div></div><h3 class="genre-title">заново</h3></div></a>
+<!--button onclick="myFunction()" class="muzter-genre"><div style="background-image: linear-gradient( 135deg, #008080 10%, #CA26FF 100%);"><div><div class="genre-icon genre-ma"></div></div><h3 class="genre-title">покормить</h3></div></button></div-->
+
+<script>
+function myFunction() {
+    document.getElementById("demo").innerHTML = "Сытость: 100%";
+}
+</script>
+<script>
+function myFunction1() {
+    document.getElementById("demo1").innerHTML = "Счастье: 100%";
+}
+</script>
+<!--div class="muzter-genres">
+    <h3  id="demo1" class="genre-title"> Счастье: 45%</h3> 
+    <br>
+      <br>
+        <h3 id="demo" class="genre-title"> Сытость: 45%</h3>
+</div-->
+
+
+  <script src="js/bind_polyfill.js"></script>
+  <script src="js/classlist_polyfill.js"></script>
+  <script src="js/animframe_polyfill.js"></script>
+  <script src="js/keyboard_input_manager.js"></script>
+  <script src="js/html_actuator.js"></script>
+  <script src="js/grid.js"></script>
+  <script src="js/tile.js"></script>
+  <script src="js/local_storage_manager.js"></script>
+  <script src="js/game_manager.js"></script>
+  <script src="js/application.js"></script>
+  <script src="/vkBridge.js"></script>
+  <script>vkBridge.send('VKWebAppInit');</script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(82267399, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/82267399" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</body>
+</html>
+
